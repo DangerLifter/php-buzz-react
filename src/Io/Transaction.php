@@ -35,6 +35,8 @@ class Transaction
 
     private $streaming = false;
 
+	private $bufferLimit = null;
+
     public function __construct(RequestInterface $request, Sender $sender, array $options = array(), MessageFactory $messageFactory)
     {
         foreach ($options as $name => $value) {
@@ -89,7 +91,7 @@ class Transaction
 
         // buffer stream and resolve with buffered body
         $messageFactory = $this->messageFactory;
-        return Stream\buffer($stream)->then(
+        return Stream\buffer($stream, $this->bufferLimit)->then(
             function ($body) use ($response, $messageFactory) {
                 return $response->withBody($messageFactory->body($body));
             },
