@@ -1,5 +1,5 @@
 {
-    "name": "clue/buzz-react",
+    "name": "dangerliter/buzz-react",
     "description": "Simple, async PSR-7 HTTP client for concurrently processing any number of HTTP requests, built on top of ReactPHP",
     "keywords": ["HTTP client", "PSR-7", "HTTP", "ReactPHP", "async"],
     "homepage": "https://github.com/clue/php-buzz-react",
@@ -29,5 +29,8 @@
         "clue/socks-react": "^0.8",
         "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
         "react/http": "^0.7.2"
+    },
+    "replace": {
+        "clue/buzz-react":"2.*"
     }
 }
